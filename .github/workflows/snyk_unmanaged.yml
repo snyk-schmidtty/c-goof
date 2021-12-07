@@ -24,7 +24,7 @@ jobs:
          sudo npm install -g snyk
          snyk auth ${SNYK_TOKEN}
     # Run Snyk Code
-    - name: Run Snyk Unmanaged
+    - name: Run Snyk Unmanaged Scan
       run: |
          snyk unmanaged monitor
       continue-on-error: true
