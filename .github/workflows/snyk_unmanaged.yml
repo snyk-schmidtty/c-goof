@@ -1,4 +1,4 @@
-name: "Snyk Code Scan"
+name: "Snyk Unmanaged Scan"
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
   Pipeline-Job:
     # Configure Environment
-    name: 'Snyk Code Scan'
+    name: 'Snyk Unmanaged Scan'
     runs-on: ubuntu-latest
     env: 
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
@@ -24,17 +24,7 @@ jobs:
          sudo npm install -g snyk
          snyk auth ${SNYK_TOKEN}
     # Run Snyk Code
-    - name: Run Snyk Code
+    - name: Run Snyk Unmanaged
       run: |
-         snyk code test --sarif  > results.sarif
+         snyk unmanaged monitor
       continue-on-error: true
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v1
-      with:
-        # Path to SARIF file relative to the root of the repository
-        sarif_file: results.sarif
-    - name: Archive Snyk Code Coverage Results
-      uses: actions/upload-artifact@v2
-      with:
-          name: Archive Snyk Code Coverage Results
-          path: results.sarif
