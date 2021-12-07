@@ -3,7 +3,7 @@ name: "Snyk Unmanaged Scan"
 on:
   push:
     branches:
-    - master
+    - main
 
 jobs:
   Pipeline-Job:
