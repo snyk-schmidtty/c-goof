@@ -28,3 +28,8 @@ jobs:
       run: |
          snyk unmanaged monitor
       continue-on-error: true
+    # Run Snyk Code Test
+    - name: Run Snyk Unmanaged Scan
+      run: |
+         snyk unmanaged test
+      continue-on-error: true
