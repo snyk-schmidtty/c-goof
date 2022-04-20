@@ -1,4 +1,4 @@
-name: "Snyk Unmanaged Scan"
+name: "Snyk Unmanaged Scan "
 
 on:
   push:
